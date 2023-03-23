@@ -21,7 +21,7 @@
         android:id="@+id/lay"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:weightSum="6"
+        android:weightSum="13"
         android:orientation="horizontal"
         android:layout_height="150dp">
 
@@ -67,6 +67,62 @@
             />
         <ImageView
             android:id="@+id/iv_card6"
+            android:layout_weight= "1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_card7"
+            android:layout_weight= "1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_card8"
+            android:layout_weight= "1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_card9"
+            android:layout_weight= "1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_card10"
+            android:layout_weight= "1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_card11"
+            android:layout_weight= "1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_card12"
+            android:layout_weight= "1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_card13"
             android:layout_weight= "1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
