@@ -1,4 +1,4 @@
-package com.example.GameFramework;
+package com.example.president;
 
 import static com.example.GameFramework.utilities.Saving.SEPARATOR;
 
