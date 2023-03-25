@@ -9,15 +9,28 @@
 
     <ImageView
         android:id="@+id/iv_deck"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
+        android:layout_width="130dp"
+        android:layout_height="150dp"
+        android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="630dp"
         android:scaleType="centerInside"
-        android:src="@drawable/black_joker"/>
+        android:src="@drawable/black_joker" />
+
+    <ImageView
+        android:id="@+id/iv_deckPile"
+        android:layout_width="130dp"
+        android:layout_height="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="498dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/black_joker" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="1000dp"
         android:id="@+id/lay"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -129,8 +142,120 @@
             android:scaleType="centerInside"
             android:src="@drawable/black_joker"
             />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="1000dp"
+        android:id="@+id/playerAcross"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:weightSum="13"
+        android:orientation="horizontal"
+        android:layout_height="150dp">
 
+        <ImageView
+            android:id="@+id/iv_playerAcross1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker" />
+
+        <ImageView
+            android:id="@+id/iv_playerAcross2"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker" />
+        <ImageView
+            android:id="@+id/iv_playerAcross3"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_playerAcross4"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_playerAcross5"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_playerAcross6"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_playerAcross7"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_playerAcross8"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_playerAcross9"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_playerAcross10"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_playerAcross11"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_playerAcross12"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
+        <ImageView
+            android:id="@+id/iv_playerAcross13"
+            android:layout_weight= "1"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/black_joker"
+            />
     </LinearLayout>
 
 
