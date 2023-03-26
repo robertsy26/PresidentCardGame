@@ -8,6 +8,8 @@ import com.example.GameFramework.GameMainActivity;
 import com.example.GameFramework.infoMessage.GameInfo;
 import com.example.GameFramework.players.GameHumanPlayer;
 
+// random comment, to delete later
+
 public class HumanPlayer extends GameHumanPlayer {
 
     private static final String TAG = "HumanPlayer";
