@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PresidentMainActivity extends GameState {
+public class PresidentGameState extends GameState {
     private int playerId; // the player
     public List<Card> cards; //cards array
     final int maxCardsHand = 13;
@@ -26,7 +26,7 @@ public class PresidentMainActivity extends GameState {
 
 
 
-    public PresidentMainActivity (int playerId, List<Card> cards, boolean is3Spade) { // basic constructor intializing the variables
+    public PresidentGameState(int playerId, List<Card> cards, boolean is3Spade) { // basic constructor intializing the variables
         this.playerId = playerId;
         this.cards = cards;
         this.is3Spade = is3Spade;
@@ -36,7 +36,7 @@ public class PresidentMainActivity extends GameState {
         player4score = 0;
     }
 
-    public PresidentMainActivity(PresidentMainActivity president){ // copy costructor that makes deep copies
+    public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies
         this.playerId = playerId;
         // cards;
         this.currentHand = president.currentHand;
