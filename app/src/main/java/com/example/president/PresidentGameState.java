@@ -2,12 +2,14 @@ package com.example.president;
 
 import static com.example.GameFramework.utilities.Saving.SEPARATOR;
 
+import com.example.GameFramework.infoMessage.GameState;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PresidentMainActivity {
-    public int playerId; // the player
+public class PresidentGameState extends GameState {
+    private int playerId; // the player
     public List<Card> cards; //cards array
     final int maxCardsHand = 13;
     final int numCardsDeck = 52;
@@ -17,14 +19,24 @@ public class PresidentMainActivity {
     public boolean is3Spade; // dictates which player starts first
     public int rankings; //numbers corresponds to a stage
     // public Object card;
+    private int player1score;
+    private int player2score;
+    private int player3score;
+    private int player4score;
 
-    public PresidentMainActivity (int playerId, List<Card> cards, boolean is3Spade) { // basic constructor intializing the variables
+
+
+    public PresidentGameState(int playerId, List<Card> cards, boolean is3Spade) { // basic constructor intializing the variables
         this.playerId = playerId;
         this.cards = cards;
         this.is3Spade = is3Spade;
+        player1score = 0;
+        player2score = 0;
+        player3score = 0;
+        player4score = 0;
     }
 
-    public PresidentMainActivity(PresidentMainActivity president, int playerId){ // copy costructor that makes deep copies
+    public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies
         this.playerId = playerId;
         // cards;
         this.currentHand = president.currentHand;
@@ -32,6 +44,11 @@ public class PresidentMainActivity {
         this.isCardVisible = president.isCardVisible;
         this.is3Spade = president.is3Spade;
         this.rankings = president.rankings;
+        this.player1score = president.getPlayer1score();
+        this.player2score = president.getPlayer2score();
+        this.player3score = president.getPlayer3score();
+        this.player4score = president.getPlayer4score();
+
         // Object card;
 
 
@@ -168,4 +185,34 @@ public class PresidentMainActivity {
     public boolean pause(int playerId){
         return true;
     }
+
+    public void setPlayer1score(int player1score) {
+        this.player1score = player1score;
+    }
+    public void setPlayer2score(int player2score) {
+        this.player1score = player2score;
+    }
+    public void setPlayer3score(int player3score) {
+        this.player1score = player3score;
+    }
+    public void setPlayer4score(int player4score) {
+        this.player1score = player4score;
+    }
+
+    public int getPlayer1score(){
+        return player1score;
+    }
+    public int getPlayer2score(){
+        return player2score;
+    }
+    public int getPlayer3score(){
+        return player3score;
+    }
+    public int getPlayer4score(){
+        return player4score;
+    }
+
+
 }
+
+
