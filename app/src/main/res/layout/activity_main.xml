@@ -168,7 +168,6 @@
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:
             android:text="PASS" />
 
     </LinearLayout>
@@ -199,7 +198,6 @@
         android:id="@+id/playerAcross"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerTop="true"
         android:orientation="horizontal"
         android:weightSum="13">
 
