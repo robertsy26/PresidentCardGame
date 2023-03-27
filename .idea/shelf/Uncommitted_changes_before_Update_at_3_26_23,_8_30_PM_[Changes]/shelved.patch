@@ -1,0 +1,115 @@
+Index: app/src/main/java/com/example/president/PresidentGameState.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.president;\n\nimport static com.example.GameFramework.utilities.Saving.SEPARATOR;\n\nimport com.example.GameFramework.infoMessage.GameState;\n\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.List;\n\npublic class PresidentGameState extends GameState {\n    private int playerId; // the player\n    public List<Card> cards; //cards array\n    final int maxCardsHand = 13;\n    final int numCardsDeck = 52;\n    public int currentHand; //how many players the card has on his turn\n    public boolean isCardCorrect; //check if the card is playable\n    public boolean isCardVisible;\n    public boolean is3Spade; // dictates which player starts first\n    public int rankings; //numbers corresponds to a stage\n    // public Object card;\n    private int player1score;\n    private int player2score;\n    private int player3score;\n    private int player4score;\n\n\n\n    public PresidentGameState(int playerId, List<Card> cards, boolean is3Spade) { // basic constructor intializing the variables\n        this.playerId = playerId;\n        this.cards = cards;\n        this.is3Spade = is3Spade;\n        player1score = 0;\n        player2score = 0;\n        player3score = 0;\n        player4score = 0;\n    }\n\n    public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies\n        this.playerId = playerId;\n        // cards;\n        this.currentHand = president.currentHand;\n        this.isCardCorrect = president.isCardCorrect;\n        this.isCardVisible = president.isCardVisible;\n        this.is3Spade = president.is3Spade;\n        this.rankings = president.rankings;\n        this.player1score = president.getPlayer1score();\n        this.player2score = president.getPlayer2score();\n        this.player3score = president.getPlayer3score();\n        this.player4score = president.getPlayer4score();\n\n        // Object card;\n\n\n\n        //going through each indvisual index to make sure all the values are copied\n        this.cards = new ArrayList<>();\n        for (Card card : president.cards){\n            if(card.isVisibleToPlayer(playerId)){\n                cards.add(card.copy());\n            }\n        }\n\n\n\n    }\n\n\n\n    public class Player {\n        private int id; // players unique id\n        private String name; // name of player\n\n        public Player(int id, String name) { //intializing the variables\n            this.id = id;\n            this.name = name;\n        }\n\n        public Player(Player player) { //copy constructor making a deep copy\n            this.id = player.id;\n            this.name = player.name;\n        }\n\n        public Player copyForPlayer(int playerID) { // creates a copy of the current player\n            if (id == playerID) {\n                return new Player(this); //if the id doesn't match the given playerID,\n                // the method creates a new Player object with the same attributes as the current object\n            } else {\n                return new Player(id, \"BRO\"); // if id doesn't match the give playerID create new player object with deafult name\n            }\n        }\n\n        public int getId() { //retrieves ID\n            return id;\n        }\n\n        public String getName() { // retrieves name\n            return name;\n        }\n    }\n\n    public class Card{\n        private int number;\n        private String name;\n        private boolean visible;\n\n        public Card(int number, String name, boolean visible){ //basic constructor\n            this.number = number;\n            this.name = name;\n            this.visible = visible;\n        }\n        public Card(Card card){ // copy constructor creating deep copy\n            this.number = card.number;\n            this.name = card.name;\n            this.visible = card.visible;\n        }\n\n        public Card copy(){ //copy method\n            return new Card(this);\n        }\n\n        public boolean isVisibleToPlayer (int playerId){ //checks if cards should be shown\n            return true;\n        }\n    }\n\n    @Override\n    public String toString() {\n        return this.playerId + SEPARATOR + this.currentHand + SEPARATOR + this.rankings + SEPARATOR +\n                this.maxCardsHand + SEPARATOR + this.numCardsDeck + SEPARATOR + this.cards + SEPARATOR +\n                this.is3Spade + SEPARATOR + this.isCardCorrect + SEPARATOR + this.isCardVisible;\n    }\n\n\n    //checks to see if card is legal to play\n    public boolean isLegal(int playersCardNum, int cardOnDeck, int numOfCardsSelected){\n        //2 has no rank and will clear the deck, so will always be legal and can't have more than 4 cards selected\n        if (playersCardNum == 2 || playersCardNum > cardOnDeck && numOfCardsSelected >= 4){\n            isCardCorrect = true;\n            updateHand(numOfCardsSelected);\n            return true; }\n        else{\n            isCardCorrect = false;\n            updateHand(numOfCardsSelected);\n            return false; }\n    }\n    //updates players hand when plays a card\n    public boolean updateHand(int numOfCardsSelected) {\n        if(numOfCardsSelected >= 1 ){ currentHand = currentHand - numOfCardsSelected;}\n        else{ currentHand = currentHand; }\n        return true;\n    }\n\n    //initializes list of players in Array\n    private Player player1;\n    private Player player2;\n    private Player player3;\n    private Player player4;\n\n    public List<Player> players = Arrays.asList(player1, player2, player3, player4);\n    Player currentPlayer = players.get(0);\n    //methods switches players\n    public void switchPlayer(Player currentPlayer)\n    {   //selects the next player from list that is after current and then restart with the first after the last\n        players.get((players.indexOf(currentPlayer) + 1) % players.size());\n    }\n    //checks if card is legal to play, then modifies game state to reflect player played a card\n    //updated users num of cards and switches players\n    public boolean playCard(int playerId, int cardOnDeck, int playersCardNum, int numOfCardsSelected, Player currentPlayer){\n        if(isLegal(playersCardNum, cardOnDeck, numOfCardsSelected)){\n            switchPlayer(currentPlayer);\n            return true; }\n        else{\n            switchPlayer(currentPlayer);\n            return false; }\n    }\n    //this case pass will always be legal so don't need to check, then reflects player passed by\n    // updated users num of cards and switches players\n    public boolean pass(int playerId, int numOfCardsSelected){\n        updateHand(numOfCardsSelected);\n        switchPlayer(currentPlayer);\n        return true;\n    }\n    //pause is always legal so don't need to check or do anything to game state\n    public boolean pause(int playerId){\n        return true;\n    }\n\n    public void setPlayer1score(int player1score) {\n        this.player1score = player1score;\n    }\n    public void setPlayer2score(int player2score) {\n        this.player1score = player2score;\n    }\n    public void setPlayer3score(int player3score) {\n        this.player1score = player3score;\n    }\n    public void setPlayer4score(int player4score) {\n        this.player1score = player4score;\n    }\n\n    public int getPlayer1score(){\n        return player1score;\n    }\n    public int getPlayer2score(){\n        return player2score;\n    }\n    public int getPlayer3score(){\n        return player3score;\n    }\n    public int getPlayer4score(){\n        return player4score;\n    }\n\n\n}\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/president/PresidentGameState.java b/app/src/main/java/com/example/president/PresidentGameState.java
+--- a/app/src/main/java/com/example/president/PresidentGameState.java	(revision 073e0f069756ee8b4e4b1d03d7a65636edbe853c)
++++ b/app/src/main/java/com/example/president/PresidentGameState.java	(date 1679873025777)
+@@ -211,6 +211,7 @@
+     public int getPlayer4score(){
+         return player4score;
+     }
++    public int getPlayerId() {return playerId;}
+ 
+ 
+ }
+Index: app/src/main/java/com/example/president/PresidentComputerPlayer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/president/PresidentComputerPlayer.java b/app/src/main/java/com/example/president/PresidentComputerPlayer.java
+new file mode 100644
+--- /dev/null	(date 1679873466071)
++++ b/app/src/main/java/com/example/president/PresidentComputerPlayer.java	(date 1679873466071)
+@@ -0,0 +1,37 @@
++package com.example.president;
++
++import com.example.GameFramework.infoMessage.GameInfo;
++import com.example.GameFramework.players.GameComputerPlayer;
++
++import java.util.Random;
++
++public class PresidentComputerPlayer extends GameComputerPlayer {
++    /**
++     * constructor
++     *
++     * @param name the player's name (e.g., "John")
++     */
++    public PresidentComputerPlayer(String name) {
++        super(name);
++    }
++
++    @Override
++    protected void receiveInfo(GameInfo info) {
++        PresidentGameState pga = (PresidentGameState) info;
++        if(pga.getPlayerId() != playerNum){
++            return;
++        }
++        Random r = new Random();
++        if(r.nextBoolean()){
++            sleep(1000);
++            PresidentPassAction ppa = new PresidentPassAction(this);
++            this.game.sendAction(ppa);
++        } else {
++            sleep(1000);
++            PresidentPlaceAction app = new PresidentPlaceAction(this);
++
++            this.game.sendAction(app);
++        }
++
++    }
++}
+Index: app/src/main/java/com/example/president/PresidentPassAction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/president/PresidentPassAction.java b/app/src/main/java/com/example/president/PresidentPassAction.java
+new file mode 100644
+--- /dev/null	(date 1679873025780)
++++ b/app/src/main/java/com/example/president/PresidentPassAction.java	(date 1679873025780)
+@@ -0,0 +1,15 @@
++package com.example.president;
++
++import com.example.GameFramework.actionMessage.GameAction;
++import com.example.GameFramework.players.GamePlayer;
++
++public class PresidentPassAction extends GameAction {
++    /**
++     * constructor for GameAction
++     *
++     * @param player the player who created the action
++     */
++    public PresidentPassAction(GamePlayer player) {
++        super(player);
++    }
++}
+Index: app/src/main/java/com/example/president/PresidentPlaceAction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/president/PresidentPlaceAction.java b/app/src/main/java/com/example/president/PresidentPlaceAction.java
+new file mode 100644
+--- /dev/null	(date 1679872728088)
++++ b/app/src/main/java/com/example/president/PresidentPlaceAction.java	(date 1679872728088)
+@@ -0,0 +1,15 @@
++package com.example.president;
++
++import com.example.GameFramework.actionMessage.GameAction;
++import com.example.GameFramework.players.GamePlayer;
++
++public class PresidentPlaceAction extends GameAction {
++    /**
++     * constructor for GameAction
++     *
++     * @param player the player who created the action
++     */
++    public PresidentPlaceAction(GamePlayer player) {
++        super(player);
++    }
++}
