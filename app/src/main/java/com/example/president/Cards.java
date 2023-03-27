@@ -22,6 +22,7 @@ public class Cards {
         cards.add(112); //clubsJack
         cards.add(113); //clubsQueen
         cards.add(114); //clubsKing
+        //test
 
         cards.add(202); //diamonds2
         cards.add(203); //diamonds3

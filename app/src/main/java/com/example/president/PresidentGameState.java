@@ -211,6 +211,7 @@ public class PresidentGameState extends GameState {
     public int getPlayer4score(){
         return player4score;
     }
+    public int getPlayerId() {return playerId;}
 
 
 }

@@ -1,0 +1,37 @@
+Index: app/src/main/java/com/example/president/PresidentMainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/president/PresidentMainActivity.java b/app/src/main/java/com/example/president/PresidentGameState.java
+rename from app/src/main/java/com/example/president/PresidentMainActivity.java
+rename to app/src/main/java/com/example/president/PresidentGameState.java
+--- a/app/src/main/java/com/example/president/PresidentMainActivity.java	
++++ b/app/src/main/java/com/example/president/PresidentGameState.java	
+@@ -8,7 +8,7 @@
+ import java.util.Arrays;
+ import java.util.List;
+ 
+-public class PresidentMainActivity extends GameState {
++public class PresidentGameState extends GameState {
+     private int playerId; // the player
+     public List<Card> cards; //cards array
+     final int maxCardsHand = 13;
+@@ -26,7 +26,7 @@
+ 
+ 
+ 
+-    public PresidentMainActivity (int playerId, List<Card> cards, boolean is3Spade) { // basic constructor intializing the variables
++    public PresidentGameState(int playerId, List<Card> cards, boolean is3Spade) { // basic constructor intializing the variables
+         this.playerId = playerId;
+         this.cards = cards;
+         this.is3Spade = is3Spade;
+@@ -36,7 +36,7 @@
+         player4score = 0;
+     }
+ 
+-    public PresidentMainActivity(PresidentMainActivity president){ // copy costructor that makes deep copies
++    public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies
+         this.playerId = playerId;
+         // cards;
+         this.currentHand = president.currentHand;
