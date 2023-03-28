@@ -225,6 +225,18 @@ public class PresidentGameState extends GameState {
     public void setPlayerId(int id){
         this.playerId = id;
     }
+    public void setPlayer1Cards (ArrayList<Integer> player){
+        player1Cards = player;
+    }
+    public void setPlayer2Cards (ArrayList<Integer> player){
+        player2Cards = player;
+    }
+    public void setPlayer3Cards (ArrayList<Integer> player){
+        player3Cards = player;
+    }
+    public void setPlayer4Cards (ArrayList<Integer> player){
+        player4Cards = player;
+    }
 
     public int getPlayer1score(){
         return player1score;
@@ -239,6 +251,20 @@ public class PresidentGameState extends GameState {
         return player4score;
     }
     public int getPlayerId() {return playerId;}
+    public ArrayList<Integer> getPlayer1Cards (){
+        return player1Cards;
+    }
+    public ArrayList<Integer> getPlayer2Cards (){
+        return player2Cards;
+    }
+    public ArrayList<Integer> getPlayer3Cards (){
+        return player3Cards;
+    }
+    public ArrayList<Integer> getPlayer4Cards (){
+        return player4Cards;
+    }
+
+
 
 
 
