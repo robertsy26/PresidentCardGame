@@ -11,8 +11,12 @@ public class PresidentComputerPlayer extends GameComputerPlayer {
      *
      * @param name the player's name (e.g., "John")
      */
+
+    int[] cards;
+
     public PresidentComputerPlayer(String name) {
         super(name);
+        cards = new int[13];
     }
 
     @Override

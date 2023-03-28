@@ -1,0 +1,54 @@
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nplugins {\r\n    id 'com.android.application' version '7.4.0' apply false\r\n    id 'com.android.library' version '7.4.0' apply false\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision 66e3314c6a2f94ed2be1e8b9dc2d714709c726f4)
++++ b/build.gradle	(date 1679588135113)
+@@ -1,5 +1,5 @@
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ plugins {
+-    id 'com.android.application' version '7.4.0' apply false
+-    id 'com.android.library' version '7.4.0' apply false
++    id 'com.android.application' version '7.3.1' apply false
++    id 'com.android.library' version '7.3.1' apply false
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/president/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.president;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.media.Image;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.ImageView;\r\n\r\nimport java.util.Collection;\r\nimport java.util.Collections;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n    Cards cardClass = new Cards();\r\n    ImageView iv_deck, iv_card1, iv_card2, iv_card3, iv_card4, iv_card5, iv_card6;\r\n\r\n    @SuppressLint(\"MissingInflatedId\")\r\n    @Override\r\n\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n        iv_deck = (ImageView) findViewById(R.id.iv_deck);\r\n        iv_card1 = (ImageView) findViewById(R.id.iv_card1);\r\n        iv_card2 = (ImageView) findViewById(R.id.iv_card2);\r\n        iv_card3 = (ImageView) findViewById(R.id.iv_card3);\r\n        iv_card4 = (ImageView) findViewById(R.id.iv_card4);\r\n        iv_card5 = (ImageView) findViewById(R.id.iv_card5);\r\n        iv_card6 = (ImageView) findViewById(R.id.iv_card6);\r\n\r\n        iv_card1.setVisibility(View.INVISIBLE);\r\n        iv_card2.setVisibility(View.INVISIBLE);\r\n        iv_card3.setVisibility(View.INVISIBLE);\r\n        iv_card4.setVisibility(View.INVISIBLE);\r\n        iv_card5.setVisibility(View.INVISIBLE);\r\n        iv_card6.setVisibility(View.INVISIBLE);\r\n\r\n        iv_deck.setOnClickListener(new View.OnClickListener(){\r\n            public void onClick(View view){\r\n                cardClass.setCards();\r\n                Collections.shuffle(cardClass.cards);\r\n                cardClass.assignImages(cardClass.cards.get(0), iv_card1);\r\n                cardClass.assignImages(cardClass.cards.get(1), iv_card2);\r\n                cardClass.assignImages(cardClass.cards.get(2), iv_card3);\r\n                cardClass.assignImages(cardClass.cards.get(3), iv_card4);\r\n                cardClass.assignImages(cardClass.cards.get(4), iv_card5);\r\n                cardClass.assignImages(cardClass.cards.get(5), iv_card6);\r\n\r\n                iv_card1.setVisibility(View.VISIBLE);\r\n                iv_card2.setVisibility(View.VISIBLE);\r\n                iv_card3.setVisibility(View.VISIBLE);\r\n                iv_card4.setVisibility(View.VISIBLE);\r\n                iv_card5.setVisibility(View.VISIBLE);\r\n                iv_card6.setVisibility(View.VISIBLE);\r\n\r\n\r\n\r\n                \r\n\r\n            }\r\n        });\r\n\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/president/MainActivity.java b/app/src/main/java/com/example/president/MainActivity.java
+--- a/app/src/main/java/com/example/president/MainActivity.java	(revision 66e3314c6a2f94ed2be1e8b9dc2d714709c726f4)
++++ b/app/src/main/java/com/example/president/MainActivity.java	(date 1679621867408)
+@@ -1,4 +1,4 @@
+-package com.example.president;
++bpackage com.example.president;
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+ 
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 66e3314c6a2f94ed2be1e8b9dc2d714709c726f4)
++++ b/.idea/misc.xml	(date 1679589260530)
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
