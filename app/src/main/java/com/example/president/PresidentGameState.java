@@ -2,7 +2,9 @@ package com.example.president;
 
 import static com.example.GameFramework.utilities.Saving.SEPARATOR;
 
+import com.example.GameFramework.gameConfiguration.GamePlayerType;
 import com.example.GameFramework.infoMessage.GameState;
+import com.example.GameFramework.players.GamePlayer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,16 +26,29 @@ public class PresidentGameState extends GameState {
     private int player3score;
     private int player4score;
 
+    ArrayList <GamePlayerType> player = new ArrayList<GamePlayerType>();
 
 
-    public PresidentGameState(int playerId, List<Card> cards, boolean is3Spade) { // basic constructor intializing the variables
-        this.playerId = playerId;
-        this.cards = cards;
-        this.is3Spade = is3Spade;
+
+    public PresidentGameState() { // basic constructor intializing the variables
         player1score = 0;
         player2score = 0;
         player3score = 0;
         player4score = 0;
+        player.add(new GamePlayerType("Local Human Player") {
+            @Override
+            public GamePlayer createPlayer(String name) {
+                return new HumanPlayer(name);
+            }
+        });
+
+        player.add(new GamePlayerType("Local Computer Player") {
+            @Override
+            public GamePlayer createPlayer(String name) {
+                return new PresidentComputerPlayer(name);
+            }
+        });
+
     }
 
     public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies
