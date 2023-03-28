@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 iv_card12.setVisibility(View.VISIBLE);
                 iv_card13.setVisibility(View.VISIBLE);
 
-                iv_deck.setVisibility((View.VISIBLE));
+                iv_deck.setVisibility((View.INVISIBLE));
 
                 
 
