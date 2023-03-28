@@ -26,6 +26,11 @@ public class PresidentGameState extends GameState {
     private int player3score;
     private int player4score;
 
+    ArrayList <Integer> player1Cards = new ArrayList<Integer>();
+    ArrayList <Integer> player2Cards = new ArrayList<Integer>();
+    ArrayList <Integer> player3Cards = new ArrayList<Integer>();
+    ArrayList <Integer> player4Cards = new ArrayList<Integer>();
+
     ArrayList <GamePlayerType> player = new ArrayList<GamePlayerType>();
 
 
@@ -49,6 +54,10 @@ public class PresidentGameState extends GameState {
             }
         });
 
+        player1Cards.clear();
+        player2Cards.clear();
+        player3Cards.clear();
+        player4Cards.clear();
     }
 
     public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies
@@ -213,6 +222,9 @@ public class PresidentGameState extends GameState {
     public void setPlayer4score(int player4score) {
         this.player1score = player4score;
     }
+    public void setPlayerId(int id){
+        this.playerId = id;
+    }
 
     public int getPlayer1score(){
         return player1score;
@@ -227,6 +239,8 @@ public class PresidentGameState extends GameState {
         return player4score;
     }
     public int getPlayerId() {return playerId;}
+
+
 
 
 }

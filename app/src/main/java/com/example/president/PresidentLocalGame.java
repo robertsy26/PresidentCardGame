@@ -18,6 +18,8 @@ public class PresidentLocalGame extends LocalGame {
 
     @Override
     protected String checkIfGameOver() {
+
+
         return null;
     }
 
@@ -28,7 +30,20 @@ public class PresidentLocalGame extends LocalGame {
 
     public void alternatePlayers() {
         if(players.length == 1){
+            return;
 
+        } else {
+            if(president.getPlayerId() == 1){
+                president.setPlayerId(2);
+
+            } else if (president.getPlayerId() == 2) {
+                president.setPlayerId(3);
+
+            } else if (president.getPlayerId() == 3) {
+                president.setPlayerId(4);
+            } else {
+                president.setPlayerId(1);
+            }
         }
     }
 
