@@ -19,8 +19,12 @@ public class HumanPlayer extends GameHumanPlayer {
      *
      * @param name the name of the player
      */
+
+    int[] cards;
+
     public HumanPlayer(String name) {
         super(name);
+        cards = new int[13];
     }
 
     @Override

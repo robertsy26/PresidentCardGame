@@ -16,6 +16,10 @@ import com.example.GameFramework.players.GamePlayer;
 import com.example.GameFramework.utilities.GameTimer;
 import com.example.GameFramework.utilities.Tickable;
 import com.example.GameFramework.utilities.Logger;
+import com.example.president.PresidentComputerPlayer;
+import com.example.president.PresidentGameState;
+import com.example.president.PresidentPassAction;
+import com.example.president.PresidentPlaceAction;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -67,6 +71,9 @@ public abstract class LocalGame implements Game, Tickable {
 
     // the game's state
     protected GameState state;
+
+    // President Game State
+    private PresidentGameState gameState;
 
     /**
      * Returns the game's timer
@@ -466,6 +473,21 @@ public abstract class LocalGame implements Game, Tickable {
     @Override
     public GameState getGameState(){
         return state;
+    }
+
+    public boolean receiveInfo(GameAction action){
+        if (action instanceof PresidentPlaceAction){
+            PresidentPlaceAction placeAction = (PresidentPlaceAction) action;
+            if (placeAction.getPlayer() instanceof PresidentComputerPlayer){
+                //
+            }
+        } else if (action instanceof PresidentPassAction) {
+            //pass to next player
+        }
+        else{
+            return false;
+        }
+        return true;
     }
 
 }// class LocalGame
