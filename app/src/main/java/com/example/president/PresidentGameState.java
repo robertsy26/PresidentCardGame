@@ -25,12 +25,22 @@ public class PresidentGameState extends GameState {
     private int player3score;
     private int player4score;
 
-    ArrayList <Integer> player1Cards = new ArrayList<Integer>();
-    ArrayList <Integer> player2Cards = new ArrayList<Integer>();
-    ArrayList <Integer> player3Cards = new ArrayList<Integer>();
-    ArrayList <Integer> player4Cards = new ArrayList<Integer>();
+    int player1Cards[] = new int[13];
+    int player2Cards[] = new int[13];
+    int player3Cards[] = new int[13];
+    int player4Cards[] = new int[13];
+
+    int allPlayers[][] = new int[4][13];
+
+
+
+
+
+
 
     ArrayList <GamePlayerType> player = new ArrayList<GamePlayerType>();
+
+
 
 
 
@@ -53,10 +63,7 @@ public class PresidentGameState extends GameState {
             }
         });
 
-        player1Cards.clear();
-        player2Cards.clear();
-        player3Cards.clear();
-        player4Cards.clear();
+
     }
 
     public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies
@@ -91,16 +98,16 @@ public class PresidentGameState extends GameState {
     public void setPlayerId(int id){
         this.playerId = id;
     }
-    public void setPlayer1Cards (ArrayList<Integer> player){
+    public void setPlayer1Cards (int[] player){
         player1Cards = player;
     }
-    public void setPlayer2Cards (ArrayList<Integer> player){
+    public void setPlayer2Cards (int[] player){
         player2Cards = player;
     }
-    public void setPlayer3Cards (ArrayList<Integer> player){
+    public void setPlayer3Cards (int[] player){
         player3Cards = player;
     }
-    public void setPlayer4Cards (ArrayList<Integer> player){
+    public void setPlayer4Cards (int[] player){
         player4Cards = player;
     }
 
@@ -117,16 +124,16 @@ public class PresidentGameState extends GameState {
         return player4score;
     }
     public int getPlayerId() {return playerId;}
-    public ArrayList<Integer> getPlayer1Cards (){
+    public int[] getPlayer1Cards (){
         return player1Cards;
     }
-    public ArrayList<Integer> getPlayer2Cards (){
+    public int[] getPlayer2Cards (){
         return player2Cards;
     }
-    public ArrayList<Integer> getPlayer3Cards (){
+    public int[] getPlayer3Cards (){
         return player3Cards;
     }
-    public ArrayList<Integer> getPlayer4Cards (){
+    public int[] getPlayer4Cards (){
         return player4Cards;
     }
 
