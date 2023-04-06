@@ -11,11 +11,8 @@ import android.widget.ImageView;
 import com.example.GameFramework.GameMainActivity;
 import com.example.GameFramework.LocalGame;
 import com.example.GameFramework.gameConfiguration.GameConfig;
-import com.example.GameFramework.gameConfiguration.GamePlayerType;
 import com.example.GameFramework.infoMessage.GameState;
-import com.example.GameFramework.players.GamePlayer;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -151,6 +148,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     public LocalGame createLocalGame(GameState gameState) {
-        return new PresidentLocalGame();
+        return null;
     }
-*/
+
+
+
+
+
+}
+
+    */
