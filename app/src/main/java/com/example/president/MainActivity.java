@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(0), imageView2);
-                iv_deck.setClickable(false);
                 iv_card1.setVisibility((View.INVISIBLE));
             }
         });
@@ -111,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(1), imageView2);
-                iv_deck.setClickable(false);
                 iv_card2.setVisibility((View.INVISIBLE));
 
             }
@@ -121,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(2), imageView2);
-                iv_deck.setClickable(false);
                 iv_card3.setVisibility((View.INVISIBLE));
 
             }
@@ -131,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(3), imageView2);
-                iv_deck.setClickable(false);
+
                 iv_card4.setVisibility((View.INVISIBLE));
 
             }
@@ -141,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(4), imageView2);
-                iv_deck.setClickable(false);
+
                 iv_card5.setVisibility((View.INVISIBLE));
 
             }
@@ -151,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(5), imageView2);
-                iv_deck.setClickable(false);
                 iv_card6.setVisibility((View.INVISIBLE));
 
             }
@@ -161,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(6), imageView2);
-                iv_deck.setClickable(false);
                 iv_card7.setVisibility((View.INVISIBLE));
 
             }
@@ -171,7 +166,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(7), imageView2);
-                iv_deck.setClickable(false);
                 iv_card8.setVisibility((View.INVISIBLE));
 
             }
@@ -182,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(8), imageView2);
-                iv_deck.setClickable(false);
                 iv_card9.setVisibility((View.INVISIBLE));
 
             }
@@ -193,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(9), imageView2);
-                iv_deck.setClickable(false);
                 iv_card10.setVisibility((View.INVISIBLE));
 
             }
@@ -204,7 +196,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(10), imageView2);
-                iv_deck.setClickable(false);
                 iv_card11.setVisibility((View.INVISIBLE));
 
             }
@@ -215,7 +206,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(11), imageView2);
-                iv_deck.setClickable(false);
                 iv_card12.setVisibility((View.INVISIBLE));
 
             }
@@ -226,7 +216,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
                 card.assignImages(card.cards.get(12), imageView2);
-                iv_deck.setClickable(false);
                 iv_card13.setVisibility((View.INVISIBLE));
 
             }
