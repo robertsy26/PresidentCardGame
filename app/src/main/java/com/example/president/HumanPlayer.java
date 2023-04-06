@@ -132,7 +132,7 @@ public class HumanPlayer extends GameHumanPlayer {
                 iv_card13.setVisibility(View.VISIBLE);
 
                 iv_deck.setVisibility((View.INVISIBLE));
-                iv_deck.setClickable(false);
+                iv_deck.setClickable(true);
 
 
 
