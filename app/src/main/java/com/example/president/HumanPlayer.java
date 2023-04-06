@@ -76,31 +76,7 @@ public class HumanPlayer extends GameHumanPlayer {
 
     }
 
-    public void setAsGui(GameMainActivity activity) {
-        presidentActivity = activity;
-        activity.setContentView(R.layout.activity_main);
-        this.iv_deck = (ImageView) activity.findViewById(R.id.iv_deck);
-        this.iv_card1 = (ImageView) activity.findViewById(R.id.iv_card1);
-        this.iv_card2 = (ImageView) activity.findViewById(R.id.iv_card2);
-        this.iv_card3 = (ImageView) activity.findViewById(R.id.iv_card3);
-        this.iv_card5 = (ImageView) activity.findViewById(R.id.iv_card5);
-        this.iv_card6 = (ImageView) activity.findViewById(R.id.iv_card6);
-        this.iv_card7 = (ImageView) activity.findViewById(R.id.iv_card7);
-        this.iv_card8 = (ImageView) activity.findViewById(R.id.iv_card8);
-        this.iv_card9 = (ImageView) activity.findViewById(R.id.iv_card9);
-        this.iv_card10 = (ImageView) activity.findViewById(R.id.iv_card10);
-        this.iv_card11 = (ImageView) activity.findViewById(R.id.iv_card11);
-        this.iv_card12 = (ImageView) activity.findViewById(R.id.iv_card12);
-        this.iv_card13 = (ImageView) activity.findViewById(R.id.iv_card13);
 
-        iv_deck.setOnClickListener((View.OnClickListener) this);
-
-
-
-
-
-        // default behavior is do nothing
-    }
 
     public void onClick(View button){
 
@@ -165,6 +141,11 @@ public class HumanPlayer extends GameHumanPlayer {
         });
 
 
+
+    }
+
+    @Override
+    public void setAsGui(GameMainActivity activity) {
 
     }
 }
