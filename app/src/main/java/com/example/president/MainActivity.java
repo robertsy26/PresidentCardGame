@@ -95,6 +95,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        iv_card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                card.setCards();
+                iv_deck.setVisibility((View.VISIBLE));
+                iv_deck.setClickable(false);
+
+
+            }
+        });
     }
 
 
