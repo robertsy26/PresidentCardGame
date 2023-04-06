@@ -17,7 +17,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView iv_deck, iv_card1,iv_card2,iv_card3,iv_card4,iv_card5,iv_card6,iv_card7,iv_card8,iv_card9,iv_card10,iv_card11,iv_card12,iv_card13;
+    ImageView iv_deck, iv_card1,iv_card2,iv_card3,iv_card4,iv_card5,iv_card6,iv_card7,iv_card8,iv_card9,iv_card10,iv_card11,iv_card12,iv_card13, imageView2;
     Cards card = new Cards();
 
 
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         iv_card11 = (ImageView) findViewById(R.id.iv_card11);
         iv_card12 = (ImageView) findViewById(R.id.iv_card12);
         iv_card13 = (ImageView) findViewById(R.id.iv_card13);
+        imageView2 = (ImageView) findViewById(R.id.imageView2);
 
         iv_card1.setVisibility(View.INVISIBLE);
         iv_card2.setVisibility(View.INVISIBLE);
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 iv_deck.setVisibility((View.VISIBLE));
-                card.assignImages(card.cards.get(0), iv_deck);
+                card.assignImages(card.cards.get(0), imageView2);
                 iv_deck.setClickable(false);
                 iv_card1.setVisibility((View.INVISIBLE));
             }
@@ -108,42 +109,70 @@ public class MainActivity extends AppCompatActivity {
         iv_card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(1), imageView2);
+                iv_deck.setClickable(false);
+                iv_card2.setVisibility((View.INVISIBLE));
 
             }
         });
         iv_card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(2), imageView2);
+                iv_deck.setClickable(false);
+                iv_card3.setVisibility((View.INVISIBLE));
 
             }
         });
         iv_card4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(3), imageView2);
+                iv_deck.setClickable(false);
+                iv_card4.setVisibility((View.INVISIBLE));
 
             }
         });
         iv_card5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(4), imageView2);
+                iv_deck.setClickable(false);
+                iv_card5.setVisibility((View.INVISIBLE));
 
             }
         });
         iv_card6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(5), imageView2);
+                iv_deck.setClickable(false);
+                iv_card6.setVisibility((View.INVISIBLE));
 
             }
         });
         iv_card7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(6), imageView2);
+                iv_deck.setClickable(false);
+                iv_card7.setVisibility((View.INVISIBLE));
 
             }
         });
         iv_card8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(7), imageView2);
+                iv_deck.setClickable(false);
+                iv_card8.setVisibility((View.INVISIBLE));
 
             }
         });
@@ -151,6 +180,10 @@ public class MainActivity extends AppCompatActivity {
         iv_card9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(8), imageView2);
+                iv_deck.setClickable(false);
+                iv_card9.setVisibility((View.INVISIBLE));
 
             }
         });
@@ -158,6 +191,10 @@ public class MainActivity extends AppCompatActivity {
         iv_card10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(9), imageView2);
+                iv_deck.setClickable(false);
+                iv_card10.setVisibility((View.INVISIBLE));
 
             }
         });
@@ -165,6 +202,10 @@ public class MainActivity extends AppCompatActivity {
         iv_card11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(10), imageView2);
+                iv_deck.setClickable(false);
+                iv_card11.setVisibility((View.INVISIBLE));
 
             }
         });
@@ -172,6 +213,10 @@ public class MainActivity extends AppCompatActivity {
         iv_card12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(11), imageView2);
+                iv_deck.setClickable(false);
+                iv_card12.setVisibility((View.INVISIBLE));
 
             }
         });
@@ -179,6 +224,10 @@ public class MainActivity extends AppCompatActivity {
         iv_card13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(12), imageView2);
+                iv_deck.setClickable(false);
+                iv_card13.setVisibility((View.INVISIBLE));
 
             }
         });
