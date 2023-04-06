@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
                 iv_card12.setVisibility(View.VISIBLE);
                 iv_card13.setVisibility(View.VISIBLE);
 
-                iv_deck.setVisibility((View.INVISIBLE));
-                iv_deck.setClickable(false);
+
+
 
 
             }
@@ -99,13 +99,93 @@ public class MainActivity extends AppCompatActivity {
         iv_card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                card.setCards();
                 iv_deck.setVisibility((View.VISIBLE));
+                card.assignImages(card.cards.get(0), iv_deck);
                 iv_deck.setClickable(false);
-
+                iv_card1.setVisibility((View.INVISIBLE));
+            }
+        });
+        iv_card2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });
+        iv_card3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        iv_card4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        iv_card5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        iv_card6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        iv_card7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        iv_card8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        iv_card9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        iv_card10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        iv_card11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        iv_card12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        iv_card13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
+
+
     }
 
 
