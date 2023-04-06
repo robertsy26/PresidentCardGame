@@ -25,18 +25,15 @@ public class PresidentGameState extends GameState {
     private int player3score;
     private int player4score;
 
-    int player1Cards[] = new int[13];
-    int player2Cards[] = new int[13];
-    int player3Cards[] = new int[13];
-    int player4Cards[] = new int[13];
-
     int allPlayers[][];
 
     int currentPlayer;
 
+    public int cardsAtPlay = 0;
 
+    public int passCount = 0;
 
-
+    public int currentCardNum = 0;
 
 
 
@@ -54,7 +51,7 @@ public class PresidentGameState extends GameState {
         player3score = 0;
         player4score = 0;
 
-        allPlayers = new int[][]{player1Cards, player2Cards, player3Cards, player4Cards};
+        allPlayers = new int[4][13];
         player.add(new GamePlayerType("Local Human Player") {
             @Override
             public GamePlayer createPlayer(String name) {
@@ -69,7 +66,7 @@ public class PresidentGameState extends GameState {
             }
         });
 
-        currentPlayer = 1;
+        currentPlayer = 0;
 
     }
 
@@ -105,18 +102,6 @@ public class PresidentGameState extends GameState {
     public void setPlayerId(int id){
         this.playerId = id;
     }
-    public void setPlayer1Cards (int[] player){
-        player1Cards = player;
-    }
-    public void setPlayer2Cards (int[] player){
-        player2Cards = player;
-    }
-    public void setPlayer3Cards (int[] player){
-        player3Cards = player;
-    }
-    public void setPlayer4Cards (int[] player){
-        player4Cards = player;
-    }
 
     public int getPlayer1score(){
         return player1score;
@@ -131,18 +116,6 @@ public class PresidentGameState extends GameState {
         return player4score;
     }
     public int getPlayerId() {return playerId;}
-    public int[] getPlayer1Cards (){
-        return player1Cards;
-    }
-    public int[] getPlayer2Cards (){
-        return player2Cards;
-    }
-    public int[] getPlayer3Cards (){
-        return player3Cards;
-    }
-    public int[] getPlayer4Cards (){
-        return player4Cards;
-    }
 
 
 
