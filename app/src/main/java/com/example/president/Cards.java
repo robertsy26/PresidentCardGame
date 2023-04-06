@@ -66,6 +66,8 @@ public class Cards {
         cards.add(413); //spadesQueen
         cards.add(414); //spadesKing
 
+        cards.add(500); //back of card
+
 
     }
 
@@ -236,6 +238,11 @@ public class Cards {
             case 414:
                 image.setImageResource(R.drawable.king_of_spades2);
                 break;
+
+            case 500:
+                image.setImageResource(R.drawable.back_card);
+                break;
+
 
 
 

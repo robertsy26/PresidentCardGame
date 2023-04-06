@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 iv_card11.setVisibility(View.VISIBLE);
                 iv_card12.setVisibility(View.VISIBLE);
                 iv_card13.setVisibility(View.VISIBLE);
+                card.assignImages(500,imageView2);
 
 
 
