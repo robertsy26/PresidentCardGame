@@ -30,7 +30,9 @@ public class PresidentGameState extends GameState {
     int player3Cards[] = new int[13];
     int player4Cards[] = new int[13];
 
-    int allPlayers[][] = new int[4][13];
+    int allPlayers[][];
+
+    int currentPlayer;
 
 
 
@@ -39,6 +41,8 @@ public class PresidentGameState extends GameState {
 
 
     ArrayList <GamePlayerType> player = new ArrayList<GamePlayerType>();
+
+    boolean emptyStack = true;
 
 
 
@@ -49,6 +53,8 @@ public class PresidentGameState extends GameState {
         player2score = 0;
         player3score = 0;
         player4score = 0;
+
+        allPlayers = new int[][]{player1Cards, player2Cards, player3Cards, player4Cards};
         player.add(new GamePlayerType("Local Human Player") {
             @Override
             public GamePlayer createPlayer(String name) {
@@ -63,6 +69,7 @@ public class PresidentGameState extends GameState {
             }
         });
 
+        currentPlayer = 1;
 
     }
 
