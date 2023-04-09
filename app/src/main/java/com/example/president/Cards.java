@@ -251,10 +251,14 @@ public class Cards {
     }
 
     public boolean legal(ArrayList<Integer> chosenCards, int cardPlayNum, int currentCardNum){
+        //If the required number of cards is 0, then a new round has started and the player
+        //choses the next card value and required number of cards
         if (cardPlayNum == 0){
+            //Returns false if no cards have been chosen
             if (chosenCards.size() == 0){
                 return false;
             }
+            //Checks that every chosen card is the same value
             for (int i = 0; i < chosenCards.size() - 1; i++){
                 int num1 = chosenCards.get(i);
                 int num2 = chosenCards.get(i + 1);
@@ -264,10 +268,13 @@ public class Cards {
             }
             return true;
         }
+        //Returns false if player hasn't chosen the correct number of cards
         else if (chosenCards.size() != cardPlayNum){
             return false;
         }
         else{
+            //A check if the chosen card is correct
+            //(When only one card is required)
             if (chosenCards.size() == 1){
                 if (chosenCards.get(0) % 100 > currentCardNum){
                     return true;
@@ -275,6 +282,7 @@ public class Cards {
                 return false;
             }
             else{
+                //Checks that every chosen card is the same value
                 for (int i = 0; i < chosenCards.size() - 1; i++){
                     int num1 = chosenCards.get(i);
                     int num2 = chosenCards.get(i + 1);
@@ -282,6 +290,8 @@ public class Cards {
                         return false;
                     }
                 }
+                //A check if chosen cards are correct
+                //(When more than one card is required)
                 if (chosenCards.get(0) % 100 > currentCardNum){
                     return true;
                 }

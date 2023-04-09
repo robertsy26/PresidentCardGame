@@ -26,19 +26,20 @@ public class MainActivity extends AppCompatActivity {
     ImageView iv_deck, iv_card1,iv_card2,iv_card3,iv_card4,iv_card5,iv_card6,iv_card7,iv_card8,iv_card9,iv_card10,iv_card11,iv_card12,iv_card13, imageView2;
     Cards card = new Cards();
 
+    //Array of cards that the player chooses
     ArrayList<Integer> chosenCards = new ArrayList<>();
     Button placeCards;
     
     Button passButton;
 
+    //Text of required number of cards to play
     TextView chosenCardsTotal;
 
+    //Text of current player
     TextView playerNumberText;
 
     PresidentUI presidentUI = new PresidentUI();
     PresidentGameState gameState = new PresidentGameState();
-
-    //TextView playCardsCount = findViewById(R.id.cardPlay);
 
 
     @Override
@@ -87,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 card.setCards();
 
+                //Assigns cards to a player's deck before moving
+                //to next player and reshuffling
                 for (int i = 0; i < 4; i++){
                     Collections.shuffle(card.cards);
                     for (int j  = 0; j < 13; j++){
@@ -133,7 +136,9 @@ public class MainActivity extends AppCompatActivity {
                 chosenCards.clear();
                 presidentUI.updateButtonColor(placeCards, Color.RED);
                 gameState.cardsAtPlay = 0;
+                gameState.passCount = 0;
                 playerNumberText = presidentUI.updatePlayerNumberText(playerNumberText, gameState.currentPlayer, false);
+                passButton.setClickable(true);
             }
         });
 
@@ -141,15 +146,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (card.legal(chosenCards, gameState.cardsAtPlay, gameState.currentCardNum)){
+                    //Since the cards are the same number, the displayed image is the first chosen card
                     card.assignImages(chosenCards.get(0), imageView2);
                     iv_deck.setVisibility(View.VISIBLE);
                     gameState.cardsAtPlay = chosenCards.size();
+                    //Updates current card value to chosen card value
                     gameState.currentCardNum = chosenCards.get(0) % 100;
                     presidentUI.updateChosenCardsTotal(chosenCardsTotal, gameState.cardsAtPlay);
                     presidentUI.updateButtonColor(placeCards, Color.RED);
                     gameState.passCount = 0;
 
-                    //Picked cards turn into 0
+                    //Finds chosen cards in current player's hand and turns those values into 0
                     while (chosenCards.size() != 0){
                         for (int i = 0; i < 13; i++){
                             if (chosenCards.get(0) == gameState.allPlayers[gameState.currentPlayer][i]){
@@ -164,11 +171,14 @@ public class MainActivity extends AppCompatActivity {
                     views = presidentUI.updateCards(views, gameState.allPlayers[gameState.currentPlayer]);
                     playerNumberText = presidentUI.updatePlayerNumberText(playerNumberText, gameState.currentPlayer, false);
 
+                    //Counts all of the 0 values in current player's hand
                     int count = 0;
                     for (int i = 0; i < 13; i++){
                         if (gameState.allPlayers[gameState.currentPlayer][i] == 0)
                             count++;
                     }
+                    //If 13 zeroes are counted, then the current player has won
+                    //and all of the buttons become unclickable
                     if (count == 13){
                         for (int i = 0; i < 13; i++){
                             views[i].setClickable(false);
@@ -176,11 +186,14 @@ public class MainActivity extends AppCompatActivity {
                         passButton.setClickable(false);
                         playerNumberText = presidentUI.updatePlayerNumberText(playerNumberText, gameState.currentPlayer, true);
                     }
+                    //Otherwise, turn goes to next player
                     else {
                         gameState.currentPlayer++;
+                        //A check to ensure the currentPlayer stays with 0-3 range
                         if (gameState.currentPlayer > 3) {
                             gameState.currentPlayer = 0;
                         }
+                        //Resets certain UI elements to prepare for the next player
                         presidentUI.updateCards(views, gameState.allPlayers[gameState.currentPlayer]);
                         views = presidentUI.resetCards(views);
                         chosenCards.clear();
@@ -194,19 +207,26 @@ public class MainActivity extends AppCompatActivity {
         passButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Turn goes to next player
                 gameState.currentPlayer++;
+                //A check to ensure the currentPlayer stays with 0-3 range
                 if (gameState.currentPlayer > 3) {
                     gameState.currentPlayer = 0;
                 }
+                //Prepares displayed hand for next player
                 ImageView[] views = new ImageView[]{iv_card1,iv_card2,iv_card3,iv_card4,iv_card5,iv_card6,iv_card7,iv_card8,iv_card9,iv_card10,iv_card11,iv_card12,iv_card13, imageView2};
                 presidentUI.updateCards(views, gameState.allPlayers[gameState.currentPlayer]);
 
+                //Increments number of passes
                 gameState.passCount++;
+                //After a pass, if number of passes is 3, then the round resets
                 if (gameState.passCount == 3){
+                    //Resets certain UI elements to prepare for new round
                     gameState.cardsAtPlay = 0;
                     card.assignImages(500, imageView2);
                     presidentUI.updateChosenCardsTotal(chosenCardsTotal, gameState.cardsAtPlay);
                 }
+                //Resets certain UI elements to prepare for the next player
                 views = presidentUI.resetCards(views);
                 chosenCards.clear();
                 presidentUI.updateButtonColor(placeCards, Color.RED);
@@ -214,28 +234,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*
+        //All of the following onClickListeners have the same code tailored
+        //to each card
         iv_card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                iv_deck.setVisibility((View.VISIBLE));
-                card.assignImages(card.cards.get(0), imageView2);
-                iv_card1.setVisibility((View.INVISIBLE));
-            }
-        });
-         */
-        iv_card1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                //If the card isn't raised, then it becomes raised
+                //and is added as a chosen card
                 if (iv_card1.getPaddingBottom() == 0) {
                     iv_card1.setPadding(0, 0, 0, 50);
                     chosenCards.add(gameState.allPlayers[gameState.currentPlayer][0]);
                 }
+                //If the card is raised, then it returns to its original position
+                //and is removed as a chosen card
                 else {
                     iv_card1.setPadding(0, 0, 0, 0);
                     chosenCards.remove(Integer.valueOf(gameState.allPlayers[gameState.currentPlayer][0]));
                 }
 
+                //Checks if the chosen cards are legal so the placeCards button
+                //can have the correct color
                 if (card.legal(chosenCards, gameState.cardsAtPlay, gameState.currentCardNum)){
                     presidentUI.updateButtonColor(placeCards, Color.GREEN);
                 }

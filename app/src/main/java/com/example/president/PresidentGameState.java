@@ -14,7 +14,6 @@ public class PresidentGameState extends GameState {
     private int playerId; // the player
     final int maxCardsHand = 13;
     final int numCardsDeck = 52;
-    public int currentHand; //how many players the card has on his turn
     public boolean isCardCorrect; //check if the card is playable
     public boolean isCardVisible;
     public boolean is3Spade; // dictates which player starts first
@@ -25,14 +24,19 @@ public class PresidentGameState extends GameState {
     private int player3score;
     private int player4score;
 
+    //2D array of all four players and each of their hands
     int allPlayers[][];
 
+    //Index of current player playing
     int currentPlayer;
 
+    //Number of required cards to play
     public int cardsAtPlay = 0;
 
+    //Number of passes that have occurred
     public int passCount = 0;
 
+    //Value of card in play
     public int currentCardNum = 0;
 
 
@@ -73,7 +77,6 @@ public class PresidentGameState extends GameState {
     public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies
         this.playerId = playerId;
         // cards;
-        this.currentHand = president.currentHand;
         this.isCardCorrect = president.isCardCorrect;
         this.isCardVisible = president.isCardVisible;
         this.is3Spade = president.is3Spade;
