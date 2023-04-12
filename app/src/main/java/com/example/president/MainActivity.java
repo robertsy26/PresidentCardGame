@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,10 +22,13 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     ImageView iv_deck, iv_card1,iv_card2,iv_card3,iv_card4,iv_card5,iv_card6,iv_card7,iv_card8,iv_card9,iv_card10,iv_card11,iv_card12,iv_card13, imageView2;
     Cards card = new Cards();
+
+    PresidentComputerPlayer dumbAI = new PresidentComputerPlayer("kickDock");
 
     //Array of cards that the player chooses
     ArrayList<Integer> chosenCards = new ArrayList<>();
@@ -205,8 +209,34 @@ public class MainActivity extends AppCompatActivity {
                         playerNumberText = presidentUI.updatePlayerNumberText(playerNumberText, gameState.currentPlayer, false);
                     }
                 }
+
+                //AI moves (Same code for pass button)
+                if (gameState.currentPlayer == 1 || gameState.currentPlayer == 3){
+                    Random rand = new Random();
+                    int randomizer = rand.nextInt(10);
+                    //40% chance for the AI to pass and 60% to play
+                    if (randomizer < 4){
+                        passButton.performClick();
+                    }
+                    else{
+                        //AI chooses the lowest possible card(s) to play
+                        chosenCards = dumbAI.pickCards(gameState);
+                        //Will play the chosen cards if they're legal
+                        if (card.legal(chosenCards, gameState.cardsAtPlay, gameState.currentCardNum)){
+                            dumbAI.sleep(2.0);
+                            placeCards.performClick();
+                        }
+                        //Will pass otherwise
+                        else{
+                            dumbAI.sleep(1.5);
+                            passButton.performClick();
+                        }
+                    }
+                }
             }
         });
+
+
 
         passButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -235,6 +265,26 @@ public class MainActivity extends AppCompatActivity {
                 chosenCards.clear();
                 presidentUI.updateButtonColor(placeCards, Color.RED);
                 playerNumberText = presidentUI.updatePlayerNumberText(playerNumberText, gameState.currentPlayer, false);
+
+                //AI moves
+                if (gameState.currentPlayer == 1 || gameState.currentPlayer == 3){
+                    Random rand = new Random();
+                    int randomizer = rand.nextInt(10);
+                    if (randomizer < 4){
+                        passButton.performClick();
+                    }
+                    else{
+                        chosenCards = dumbAI.pickCards(gameState);
+                        if (card.legal(chosenCards, gameState.cardsAtPlay, gameState.currentCardNum)){
+                            dumbAI.sleep(2.0);
+                            placeCards.performClick();
+                        }
+                        else{
+                            dumbAI.sleep(1.5);
+                            passButton.performClick();
+                        }
+                    }
+                }
             }
         });
 
@@ -516,6 +566,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+
 
 
 

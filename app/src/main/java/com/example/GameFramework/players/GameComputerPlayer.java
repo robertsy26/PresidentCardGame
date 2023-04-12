@@ -269,7 +269,7 @@ public abstract class GameComputerPlayer implements GamePlayer, Tickable {
      * @param seconds
      * 			the number of seconds to sleep for
      */
-    protected void sleep(double seconds) {
+    public void sleep(double seconds) {
         long milliseconds;
 
         //Since Thread.sleep takes in milliseconds, convert from seconds to milliseconds
