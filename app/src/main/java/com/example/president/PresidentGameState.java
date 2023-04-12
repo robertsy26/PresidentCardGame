@@ -10,6 +10,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Yutaka Roberts
+ * @author Anish Karumuri
+ * @author Zella Run
+ * @author Calvin Phuong
+ * @version April 2023
+ */
 public class PresidentGameState extends GameState {
     private int playerId; // the player
     final int maxCardsHand = 13;

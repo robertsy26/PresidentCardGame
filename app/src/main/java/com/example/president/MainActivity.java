@@ -24,6 +24,36 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
+/**
+ * @author Yutaka Roberts
+ * @author Anish Karumuri
+ * @author Zella Run
+ * @author Calvin Phuong
+ * @version April 2023
+ *
+ * Rubric Requirements:
+ * Our game supports all the rules of play
+ * 80% of GUI is finished, we are missing a pause screen,and the Dumb and Smart Ai animation, and the ability to select which players are real and which are AI
+ * We have implemented a Dumb AI, which can be found in the PresidentComputerPlayer Class
+ * We have a rough algorithm down for the smart AI but we haven't started coding it yet
+ * The rough algorithm for the Smart AI is in the PresidentSmartAI class
+ * Our graphic elements are pretty much done, we just need to make our pause button visible and place it in the corner so it doesn't block off any cards
+ * The GUI is effective, the user doesn't have to do much work for the game work without any errors
+ * We limited the user's freedom so the user can only press pass or place a card down or press pause
+ * There are no easy to find bugs, the game plays with no error so far........
+ * The only thing that is a little of putting is the human player can't see the AI play
+ * We have the first player and third player as human
+ * We have the second player and fourth player as the dumb AI
+ * Once the first player places their card or passes, the screen will stationary for a few seconds than skip to player 3; after player 3 it will go back to player 1
+ * The main deck will update the card the dumb AI places but you can't actually see it being chosen
+ *
+ * Next Steps:
+ * Have the user be able to choose whether they want to play against AI or friends
+ * Have a pause screen
+ * Have the user be able to see the Dumb and Smart AI choose a card
+ * Implement the Smart AI into the game
+ */
+
 public class MainActivity extends AppCompatActivity {
     ImageView iv_deck, iv_card1,iv_card2,iv_card3,iv_card4,iv_card5,iv_card6,iv_card7,iv_card8,iv_card9,iv_card10,iv_card11,iv_card12,iv_card13, imageView2;
     Cards card = new Cards();

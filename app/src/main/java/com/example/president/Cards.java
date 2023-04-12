@@ -3,7 +3,13 @@ package com.example.president;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
-
+/**
+ * @author Yutaka Roberts
+ * @author Anish Karumuri
+ * @author Zella Run
+ * @author Calvin Phuong
+ * @version April 2023
+ */
 public class Cards {
     ArrayList<Integer> cards;
     public void setCards() {
