@@ -5,22 +5,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/backgroundtable">
+
 
     <LinearLayout
         android:id="@+id/centerPile"
-        android:layout_width="400dp"
+        android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_centerInParent="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
         android:orientation="horizontal"
         android:weightSum="10">
 
         <TextView
             android:id="@+id/playerNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:layout_gravity="left"
             android:layout_weight="1"
             android:gravity="center"
@@ -30,7 +31,7 @@
         <ImageView
             android:id="@+id/iv_deck"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/back_card" />
@@ -40,12 +41,13 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:scaleType="centerInside"
             app:srcCompat="@drawable/back_card" />
 
         <TextView
             android:id="@+id/cardPlay"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:text="x0"
@@ -171,15 +173,15 @@
 
     <LinearLayout
         android:id="@+id/pass"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="990dp"
+        android:layout_height="62dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="150dp"
         android:layout_marginLeft="150dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="140dp"
         android:layout_marginBottom="125dp"
         android:orientation="horizontal"
         android:weightSum="13">
@@ -189,6 +191,7 @@
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:paddingBottom="10dp"
             android:text="PLAY" />
 
         <Space
