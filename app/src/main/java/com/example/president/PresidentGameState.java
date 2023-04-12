@@ -120,6 +120,10 @@ public class PresidentGameState extends GameState {
     }
     public int getPlayerId() {return playerId;}
 
+    public int getCurrentPlayer(){
+        return currentPlayer;
+    }
+
 
 
 

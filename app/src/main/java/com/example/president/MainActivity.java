@@ -83,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         iv_card12.setVisibility(View.INVISIBLE);
         iv_card13.setVisibility(View.INVISIBLE);
 
+
+
         iv_deck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,12 +141,14 @@ public class MainActivity extends AppCompatActivity {
                 gameState.passCount = 0;
                 playerNumberText = presidentUI.updatePlayerNumberText(playerNumberText, gameState.currentPlayer, false);
                 passButton.setClickable(true);
+
             }
         });
 
         placeCards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (card.legal(chosenCards, gameState.cardsAtPlay, gameState.currentCardNum)){
                     //Since the cards are the same number, the displayed image is the first chosen card
                     card.assignImages(chosenCards.get(0), imageView2);
@@ -508,7 +512,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+           
 
 
     }
