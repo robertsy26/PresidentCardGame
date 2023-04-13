@@ -41,11 +41,12 @@ import java.util.Random;
  * The GUI is effective, the user doesn't have to do much work for the game work without any errors
  * We limited the user's freedom so the user can only press pass or place a card down or press pause
  * There are no easy to find bugs, the game plays with no error so far........
- * The only thing that is a little of putting is the human player can't see the AI play
+ * The only thing that is a little off putting is the human player can't see the AI play
  * We have the first player and third player as human
  * We have the second player and fourth player as the dumb AI
  * Once the first player places their card or passes, the screen will stationary for a few seconds than skip to player 3; after player 3 it will go back to player 1
  * The main deck will update the card the dumb AI places but you can't actually see it being chosen
+ * We will implement the GUI so the user can see the card get raised and placed down by the UI, this will make the game more natural
  *
  * Next Steps:
  * Have the user be able to choose whether they want to play against AI or friends
