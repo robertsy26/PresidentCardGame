@@ -12,12 +12,25 @@ import com.example.GameFramework.players.GameComputerPlayer;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+/**
+ * @author Yutaka Roberts
+ * @author Anish Karumuri
+ * @author Zella Run
+ * @author Calvin Phuong
+ * @version April 2023
+ *
+ * Our dumb AI randomly passes or places down a legal card
+ * There is a small chance that the dumb AI can win the game
+ * The dumb AI will check how many cards have been placed and place the same down if it can
+ * it will only place the smallest numbers, making it easier for the human player to place down cards as well
+ */
 public class PresidentComputerPlayer extends GameComputerPlayer {
     /**
      * constructor
      *
      * @param name the player's name (e.g., "John")
+     * This class contains our dumb AI
+     *
      */
 
     int[] cards;

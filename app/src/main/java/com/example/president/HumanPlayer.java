@@ -12,7 +12,14 @@ import com.example.GameFramework.infoMessage.GameState;
 import com.example.GameFramework.players.GameHumanPlayer;
 
 import java.util.Collections;
-
+/**
+ * @author Yutaka Roberts
+ * @author Anish Karumuri
+ * @author Zella Run
+ * @author Calvin Phuong
+ * @version April 2023
+ * *****Ignore This Class*******
+ */
 public class HumanPlayer extends GameHumanPlayer {
     private ImageView iv_deck = null;
     private ImageView iv_card1 = null;
