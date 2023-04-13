@@ -17,7 +17,7 @@
         android:layout_height="100dp"
         android:layout_centerInParent="false"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="270dp"
         android:orientation="horizontal"
         android:weightSum="10">
 
@@ -176,16 +176,16 @@
 
     <LinearLayout
         android:id="@+id/pass"
-        android:layout_width="990dp"
-        android:layout_height="62dp"
+        android:layout_width="920dp"
+        android:layout_height="83dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="150dp"
         android:layout_marginLeft="150dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginRight="140dp"
-        android:layout_marginBottom="125dp"
+        android:layout_marginEnd="210dp"
+        android:layout_marginRight="210dp"
+        android:layout_marginBottom="110dp"
         android:orientation="horizontal"
         android:weightSum="13">
 
@@ -193,8 +193,8 @@
             android:id="@+id/placeCards"
             android:layout_width="116dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:paddingBottom="10dp"
             android:text="PLAY" />
 
         <Space
@@ -206,7 +206,7 @@
             android:id="@+id/passButton"
             android:layout_width="116dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="PASS" />
 
@@ -471,7 +471,7 @@
         android:layout_width="100dp"
         android:layout_height="600dp"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="1180dp"
+        android:layout_alignParentRight="true"
         android:orientation="vertical"
         android:weightSum="13">
 
