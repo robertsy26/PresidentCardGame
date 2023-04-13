@@ -1,0 +1,284 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_31_2023_12_25_AM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_31_2023_12_25_AM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_3_31_2023_12_25_AM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_31_2023_12_25_AM__Changes_.xml	(revision 03773d8bf5311595b9861f0b8ef9632fbdf21f96)
++++ /dev/null	(revision 03773d8bf5311595b9861f0b8ef9632fbdf21f96)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_3_31_2023_12_25_AM_[Changes]" date="1680247561143" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_31_2023_12_25_AM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 3/31/2023 12:25 AM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_31_2023_12_25_AM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_31_2023_12_25_AM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_3_31_2023_12_25_AM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_31_2023_12_25_AM_[Changes]/shelved.patch	(revision 03773d8bf5311595b9861f0b8ef9632fbdf21f96)
++++ /dev/null	(revision 03773d8bf5311595b9861f0b8ef9632fbdf21f96)
+@@ -1,265 +0,0 @@
+-Index: app/src/main/java/com/example/president/PresidentGameState.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package com.example.president;\r\n\r\nimport static com.example.GameFramework.utilities.Saving.SEPARATOR;\r\n\r\nimport com.example.GameFramework.gameConfiguration.GamePlayerType;\r\nimport com.example.GameFramework.infoMessage.GameState;\r\nimport com.example.GameFramework.players.GamePlayer;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Arrays;\r\nimport java.util.List;\r\n\r\npublic class PresidentGameState extends GameState {\r\n    private int playerId; // the player\r\n    final int maxCardsHand = 13;\r\n    final int numCardsDeck = 52;\r\n    public int currentHand; //how many players the card has on his turn\r\n    public boolean isCardCorrect; //check if the card is playable\r\n    public boolean isCardVisible;\r\n    public boolean is3Spade; // dictates which player starts first\r\n    public int rankings; //numbers corresponds to a stage\r\n    // public Object card;\r\n    private int player1score;\r\n    private int player2score;\r\n    private int player3score;\r\n    private int player4score;\r\n\r\n    int player1Cards[] = new int[13];\r\n    int player2Cards[] = new int[13];\r\n    int player3Cards[] = new int[13];\r\n    int player4Cards[] = new int[13];\r\n\r\n    int allPlayers[][] = new int[4][13];\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    ArrayList <GamePlayerType> player = new ArrayList<GamePlayerType>();\r\n\r\n\r\n\r\n\r\n\r\n    public PresidentGameState() { // basic constructor intializing the variables\r\n        player1score = 0;\r\n        player2score = 0;\r\n        player3score = 0;\r\n        player4score = 0;\r\n        player.add(new GamePlayerType(\"Local Human Player\") {\r\n            @Override\r\n            public GamePlayer createPlayer(String name) {\r\n                return new HumanPlayer(name);\r\n            }\r\n        });\r\n\r\n        player.add(new GamePlayerType(\"Local Computer Player\") {\r\n            @Override\r\n            public GamePlayer createPlayer(String name) {\r\n                return new PresidentComputerPlayer(name);\r\n            }\r\n        });\r\n\r\n\r\n    }\r\n\r\n    public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies\r\n        this.playerId = playerId;\r\n        // cards;\r\n        this.currentHand = president.currentHand;\r\n        this.isCardCorrect = president.isCardCorrect;\r\n        this.isCardVisible = president.isCardVisible;\r\n        this.is3Spade = president.is3Spade;\r\n        this.rankings = president.rankings;\r\n        this.player1score = president.getPlayer1score();\r\n        this.player2score = president.getPlayer2score();\r\n        this.player3score = president.getPlayer3score();\r\n        this.player4score = president.getPlayer4score();\r\n\r\n\r\n\r\n    }\r\n\r\n    public void setPlayer1score(int player1score) {\r\n        this.player1score = player1score;\r\n    }\r\n    public void setPlayer2score(int player2score) {\r\n        this.player1score = player2score;\r\n    }\r\n    public void setPlayer3score(int player3score) {\r\n        this.player1score = player3score;\r\n    }\r\n    public void setPlayer4score(int player4score) {\r\n        this.player1score = player4score;\r\n    }\r\n    public void setPlayerId(int id){\r\n        this.playerId = id;\r\n    }\r\n    public void setPlayer1Cards (int[] player){\r\n        player1Cards = player;\r\n    }\r\n    public void setPlayer2Cards (int[] player){\r\n        player2Cards = player;\r\n    }\r\n    public void setPlayer3Cards (int[] player){\r\n        player3Cards = player;\r\n    }\r\n    public void setPlayer4Cards (int[] player){\r\n        player4Cards = player;\r\n    }\r\n\r\n    public int getPlayer1score(){\r\n        return player1score;\r\n    }\r\n    public int getPlayer2score(){\r\n        return player2score;\r\n    }\r\n    public int getPlayer3score(){\r\n        return player3score;\r\n    }\r\n    public int getPlayer4score(){\r\n        return player4score;\r\n    }\r\n    public int getPlayerId() {return playerId;}\r\n    public int[] getPlayer1Cards (){\r\n        return player1Cards;\r\n    }\r\n    public int[] getPlayer2Cards (){\r\n        return player2Cards;\r\n    }\r\n    public int[] getPlayer3Cards (){\r\n        return player3Cards;\r\n    }\r\n    public int[] getPlayer4Cards (){\r\n        return player4Cards;\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n}\r\n\r\n\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/java/com/example/president/PresidentGameState.java b/app/src/main/java/com/example/president/PresidentGameState.java
+---- a/app/src/main/java/com/example/president/PresidentGameState.java	(revision 38d2a175f6ea503e23ff0b520259900f929e54af)
+-+++ b/app/src/main/java/com/example/president/PresidentGameState.java	(date 1680193448573)
+-@@ -30,7 +30,9 @@
+-     int player3Cards[] = new int[13];
+-     int player4Cards[] = new int[13];
+- 
+--    int allPlayers[][] = new int[4][13];
+-+    int allPlayers[][];
+-+
+-+    int currentPlayer;
+- 
+- 
+- 
+-@@ -40,6 +42,8 @@
+- 
+-     ArrayList <GamePlayerType> player = new ArrayList<GamePlayerType>();
+- 
+-+    boolean emptyStack = true;
+-+
+- 
+- 
+- 
+-@@ -49,6 +53,8 @@
+-         player2score = 0;
+-         player3score = 0;
+-         player4score = 0;
+-+
+-+        allPlayers = new int[][]{player1Cards, player2Cards, player3Cards, player4Cards};
+-         player.add(new GamePlayerType("Local Human Player") {
+-             @Override
+-             public GamePlayer createPlayer(String name) {
+-@@ -63,6 +69,7 @@
+-             }
+-         });
+- 
+-+        currentPlayer = 1;
+- 
+-     }
+- 
+-Index: app/src/main/res/layout/activity_main.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <LinearLayout\r\n        android:id=\"@+id/centerPile\"\r\n        android:layout_width=\"300dp\"\r\n        android:layout_height=\"100dp\"\r\n        android:layout_centerInParent=\"false\"\r\n        android:layout_centerHorizontal=\"true\"\r\n        android:layout_marginTop=\"200dp\"\r\n        android:orientation=\"horizontal\"\r\n        android:weightSum=\"10\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_deck\"\r\n            android:layout_width=\"100dp\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/imageView2\"\r\n            android:layout_width=\"100dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            app:srcCompat=\"@drawable/back_card\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/cardPlay\"\r\n            android:layout_width=\"100dp\"\r\n            android:layout_height=\"100dp\"\r\n            android:layout_weight=\"1\"\r\n            android:gravity=\"center\"\r\n            android:text=\"x1\"\r\n            android:textSize=\"20sp\" />\r\n\r\n\r\n    </LinearLayout>\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"900dp\"\r\n        android:id=\"@+id/lay\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:layout_centerHorizontal=\"true\"\r\n        android:weightSum=\"13\"\r\n        android:orientation=\"horizontal\"\r\n        android:layout_height=\"150dp\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_card1\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card2\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card3\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card4\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card5\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card6\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card7\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card8\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card9\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card10\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card11\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card12\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_card13\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n    </LinearLayout>\r\n\r\n    <LinearLayout\r\n        android:id=\"@+id/pass\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"100dp\"\r\n        android:layout_alignParentEnd=\"true\"\r\n        android:layout_alignParentRight=\"true\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:layout_marginStart=\"150dp\"\r\n        android:layout_marginLeft=\"150dp\"\r\n        android:layout_marginEnd=\"150dp\"\r\n        android:layout_marginRight=\"150dp\"\r\n        android:layout_marginBottom=\"125dp\"\r\n        android:orientation=\"horizontal\"\r\n        android:weightSum=\"13\">\r\n\r\n        <Button\r\n            android:id=\"@+id/placeCards\"\r\n            android:layout_width=\"116dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:text=\"PLAY\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/passButton\"\r\n            android:layout_width=\"116dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"right\"\r\n            android:layout_weight=\"1\"\r\n            android:text=\"PASS\" />\r\n\r\n    </LinearLayout>\r\n\r\n    <LinearLayout\r\n        android:id=\"@+id/pause\"\r\n        android:layout_width=\"250dp\"\r\n        android:layout_height=\"100dp\"\r\n        android:layout_alignParentTop=\"true\"\r\n        android:layout_alignParentRight=\"true\"\r\n        android:orientation=\"horizontal\"\r\n        android:weightSum=\"13\">\r\n\r\n        <Button\r\n            android:id=\"@+id/pauseButton\"\r\n            android:layout_width=\"50dp\"\r\n            android:layout_height=\"70dp\"\r\n            android:layout_weight=\"1\"\r\n            android:text=\"I I\"\r\n            android:textSize=\"20dp\" />\r\n\r\n    </LinearLayout>\r\n\r\n\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"700dp\"\r\n        android:id=\"@+id/playerAcross\"\r\n        android:layout_height=\"100dp\"\r\n        android:layout_centerHorizontal=\"true\"\r\n        android:orientation=\"horizontal\"\r\n        android:weightSum=\"13\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross1\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross2\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\" />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross3\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross4\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross5\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross6\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\" />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross7\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross8\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross9\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross10\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross11\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross12\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\" />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerAcross13\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n    </LinearLayout>\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"100dp\"\r\n        android:id=\"@+id/playerLeft\"\r\n        android:layout_height=\"600dp\"\r\n        android:layout_centerVertical=\"true\"\r\n        android:orientation=\"vertical\"\r\n        android:weightSum=\"13\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft1\"\r\n            android:layout_weight= \"1\"\r\n            android:orientation=\"vertical\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft2\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft3\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft4\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft5\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft6\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft7\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft8\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft9\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft10\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft11\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft12\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerLeft13\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n    </LinearLayout>\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"100dp\"\r\n        android:id=\"@+id/playerRight\"\r\n        android:layout_height=\"600dp\"\r\n        android:layout_centerVertical=\"true\"\r\n        android:layout_marginLeft=\"1180dp\"\r\n        android:orientation=\"vertical\"\r\n        android:weightSum=\"13\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight1\"\r\n            android:layout_weight= \"1\"\r\n            android:orientation=\"vertical\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight2\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight3\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight4\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight5\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight6\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight7\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight8\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight9\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight10\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight11\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight12\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\" />\r\n        <ImageView\r\n            android:id=\"@+id/iv_playerRight13\"\r\n            android:layout_weight= \"1\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"centerInside\"\r\n            android:rotation=\"270\"\r\n            android:src=\"@drawable/back_card\"\r\n            />\r\n\r\n    </LinearLayout>\r\n\r\n\r\n</RelativeLayout>\r\n\r\n\r\n\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+---- a/app/src/main/res/layout/activity_main.xml	(revision 38d2a175f6ea503e23ff0b520259900f929e54af)
+-+++ b/app/src/main/res/layout/activity_main.xml	(date 1680193597564)
+-@@ -109,14 +109,14 @@
+-             android:scaleType="centerInside"
+-             android:src="@drawable/back_card"
+-             />
+-+
+-         <ImageView
+-             android:id="@+id/iv_card8"
+--            android:layout_weight= "1"
+-             android:layout_width="match_parent"
+-             android:layout_height="match_parent"
+-+            android:layout_weight="1"
+-             android:scaleType="centerInside"
+--            android:src="@drawable/back_card"
+--            />
+-+            android:src="@drawable/back_card" />
+-         <ImageView
+-             android:id="@+id/iv_card9"
+-             android:layout_weight= "1"
+-@@ -182,6 +182,11 @@
+-             android:layout_weight="1"
+-             android:text="PLAY" />
+- 
+-+        <Space
+-+            android:layout_width="wrap_content"
+-+            android:layout_height="wrap_content"
+-+            android:layout_weight="1" />
+-+
+-         <Button
+-             android:id="@+id/passButton"
+-             android:layout_width="116dp"
+-Index: app/src/main/java/com/example/president/MainActivity.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package com.example.president;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.media.Image;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.ImageView;\r\n\r\nimport com.example.GameFramework.GameMainActivity;\r\nimport com.example.GameFramework.LocalGame;\r\nimport com.example.GameFramework.gameConfiguration.GameConfig;\r\nimport com.example.GameFramework.infoMessage.GameState;\r\n\r\nimport java.util.Collection;\r\nimport java.util.Collections;\r\n\r\npublic class MainActivity extends GameMainActivity {\r\n\r\n    private static final int PORT_NUMBER = 3384;\r\n\r\n\r\n    @Override\r\n    public GameConfig createDefaultConfig() {\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public LocalGame createLocalGame(GameState gameState) {\r\n        return null;\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/java/com/example/president/MainActivity.java b/app/src/main/java/com/example/president/MainActivity.java
+---- a/app/src/main/java/com/example/president/MainActivity.java	(revision 38d2a175f6ea503e23ff0b520259900f929e54af)
+-+++ b/app/src/main/java/com/example/president/MainActivity.java	(date 1680192761607)
+-@@ -3,9 +3,11 @@
+- import androidx.appcompat.app.AppCompatActivity;
+- 
+- import android.annotation.SuppressLint;
+-+import android.graphics.Color;
+- import android.media.Image;
+- import android.os.Bundle;
+- import android.view.View;
+-+import android.widget.Button;
+- import android.widget.ImageView;
+- 
+- import com.example.GameFramework.GameMainActivity;
+-@@ -16,23 +18,31 @@
+- import java.util.Collection;
+- import java.util.Collections;
+- 
+--public class MainActivity extends GameMainActivity {
+-+public class MainActivity extends AppCompatActivity {
+-+    Cards cardClass = new Cards();
+-+    ImageView iv_deck, iv_card1, iv_card2, iv_card3, iv_card4, iv_card5, iv_card6, iv_card7, iv_card8, iv_card9, iv_card10, iv_card11, iv_card12, iv_card13;
+- 
+--    private static final int PORT_NUMBER = 3384;
+-+    PresidentGameState presidentGameState;
+-+    Button placeCards = null;
+- 
+--
+-+    @SuppressLint("MissingInflatedId")
+-     @Override
+--    public GameConfig createDefaultConfig() {
+--        return null;
+--    }
+-+
+-+    protected void onCreate(Bundle savedInstanceState) {
+-+        super.onCreate(savedInstanceState);
+-+        setContentView(R.layout.activity_main);
+- 
+-+        presidentGameState = new PresidentGameState();
+-+        //placeCards = new Button (findViewById(R.id.placeCards));
+-+        //placeCards.setBackgroundColor(Color.RED);
+-+
+-+        /*
+-     @Override
+-     public LocalGame createLocalGame(GameState gameState) {
+-         return null;
+-     }
+- 
+--
+-+         */
+- 
+--
+--
+-+    }
+- }
+-\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_23_2023_8_43_AM__Changes_.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_23_2023_8_43_AM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_3_23_2023_8_43_AM__Changes_.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_23_2023_8_43_AM__Changes_.xml	(revision 38d2a175f6ea503e23ff0b520259900f929e54af)
+-+++ /dev/null	(revision 38d2a175f6ea503e23ff0b520259900f929e54af)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Update_at_3_23_2023_8_43_AM_[Changes]" date="1679586332510" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_23_2023_8_43_AM_[Changes]/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Update at 3/23/2023 8:43 AM [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Update_at_3_23_2023_8_43_AM_[Changes]/shelved.patch
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_3_23_2023_8_43_AM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_3_23_2023_8_43_AM_[Changes]/shelved.patch
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Update_at_3_23_2023_8_43_AM_[Changes]/shelved.patch	(revision 38d2a175f6ea503e23ff0b520259900f929e54af)
+-+++ /dev/null	(revision 38d2a175f6ea503e23ff0b520259900f929e54af)
+-@@ -1,48 +0,0 @@
+--Index: .idea/misc.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/.idea/misc.xml b/.idea/misc.xml
+----- a/.idea/misc.xml	(revision 9732ec641c1cbd2c1f293b9b47adb4117559d00f)
+--+++ b/.idea/misc.xml	(date 1679533156386)
+--@@ -1,7 +1,7 @@
+-- <?xml version="1.0" encoding="UTF-8"?>
+-- <project version="4">
+--   <component name="ExternalStorageConfigurationManager" enabled="true" />
+---  <component name="ProjectRootManager" version="2" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+--+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+--     <output url="file://$PROJECT_DIR$/build/classes" />
+--   </component>
+--   <component name="ProjectType">
+--Index: .idea/gradle.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"GRADLE\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+----- a/.idea/gradle.xml	(revision 9732ec641c1cbd2c1f293b9b47adb4117559d00f)
+--+++ b/.idea/gradle.xml	(date 1679533156409)
+--@@ -1,11 +1,18 @@
+-- <?xml version="1.0" encoding="UTF-8"?>
+-- <project version="4">
+--+  <component name="GradleMigrationSettings" migrationVersion="1" />
+--   <component name="GradleSettings">
+--     <option name="linkedExternalProjectsSettings">
+--       <GradleProjectSettings>
+--         <option name="testRunner" value="GRADLE" />
+--         <option name="distributionType" value="DEFAULT_WRAPPED" />
+--         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+--+        <option name="modules">
+--+          <set>
+--+            <option value="$PROJECT_DIR$" />
+--+            <option value="$PROJECT_DIR$/app" />
+--+          </set>
+--+        </option>
+--       </GradleProjectSettings>
+--     </option>
+--   </component>
+-Index: app/src/main/java/com/example/president/PresidentUI.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/java/com/example/president/PresidentUI.java b/app/src/main/java/com/example/president/PresidentUI.java
+-new file mode 100644
+---- /dev/null	(date 1680193448554)
+-+++ b/app/src/main/java/com/example/president/PresidentUI.java	(date 1680193448554)
+-@@ -0,0 +1,37 @@
+-+package com.example.president;
+-+
+-+import android.graphics.Color;
+-+import android.widget.Button;
+-+
+-+public class PresidentUI {
+-+
+-+    PresidentGameState gameState;
+-+    Button placeCards;
+-+
+-+    public PresidentUI(PresidentGameState gameState){
+-+        this.gameState = gameState;
+-+        placeCards.findViewById(R.id.placeCards);
+-+    }
+-+
+-+    //temporary name
+-+    public void updateCards(){
+-+        //number of cards
+-+        gameState.getPlayer1Cards();
+-+        //array of player 1's cards
+-+        gameState.getPlayer1Cards();
+-+
+-+        /*
+-+        If displayed cards are in an array, I could set every card
+-+        in display to the player's cards in array
+-+         */
+-+
+-+        int player = gameState.currentPlayer - 1;
+-+
+-+        for (int i = 0; i < gameState.allPlayers[player].length; i++){
+-+                //displayCards[i] = gameState.allPlayers[player][i];
+-+        }
+-+
+-+        //Current player and individual player cards are different
+-+        //Putting the players into an array would turn change easier
+-+    }
+-+}

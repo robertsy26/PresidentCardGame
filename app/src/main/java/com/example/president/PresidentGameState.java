@@ -10,11 +10,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Yutaka Roberts
+ * @author Anish Karumuri
+ * @author Zella Run
+ * @author Calvin Phuong
+ * @version April 2023
+ *
+ * Has a bunch of variables which track current cards, whose cards are whose, how many cards each player has currently
+ *
+ */
 public class PresidentGameState extends GameState {
     private int playerId; // the player
     final int maxCardsHand = 13;
     final int numCardsDeck = 52;
-    public int currentHand; //how many players the card has on his turn
     public boolean isCardCorrect; //check if the card is playable
     public boolean isCardVisible;
     public boolean is3Spade; // dictates which player starts first
@@ -25,18 +34,20 @@ public class PresidentGameState extends GameState {
     private int player3score;
     private int player4score;
 
-    int player1Cards[] = new int[13];
-    int player2Cards[] = new int[13];
-    int player3Cards[] = new int[13];
-    int player4Cards[] = new int[13];
-
+    //2D array of all four players and each of their hands
     int allPlayers[][];
 
+    //Index of current player playing
     int currentPlayer;
 
+    //Number of required cards to play
+    public int cardsAtPlay = 0;
 
+    //Number of passes that have occurred
+    public int passCount = 0;
 
-
+    //Value of card in play
+    public int currentCardNum = 0;
 
 
 
@@ -54,7 +65,7 @@ public class PresidentGameState extends GameState {
         player3score = 0;
         player4score = 0;
 
-        allPlayers = new int[][]{player1Cards, player2Cards, player3Cards, player4Cards};
+        allPlayers = new int[4][13];
         player.add(new GamePlayerType("Local Human Player") {
             @Override
             public GamePlayer createPlayer(String name) {
@@ -69,14 +80,13 @@ public class PresidentGameState extends GameState {
             }
         });
 
-        currentPlayer = 1;
+        currentPlayer = 0;
 
     }
 
     public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies
         this.playerId = playerId;
         // cards;
-        this.currentHand = president.currentHand;
         this.isCardCorrect = president.isCardCorrect;
         this.isCardVisible = president.isCardVisible;
         this.is3Spade = president.is3Spade;
@@ -105,18 +115,6 @@ public class PresidentGameState extends GameState {
     public void setPlayerId(int id){
         this.playerId = id;
     }
-    public void setPlayer1Cards (int[] player){
-        player1Cards = player;
-    }
-    public void setPlayer2Cards (int[] player){
-        player2Cards = player;
-    }
-    public void setPlayer3Cards (int[] player){
-        player3Cards = player;
-    }
-    public void setPlayer4Cards (int[] player){
-        player4Cards = player;
-    }
 
     public int getPlayer1score(){
         return player1score;
@@ -131,17 +129,9 @@ public class PresidentGameState extends GameState {
         return player4score;
     }
     public int getPlayerId() {return playerId;}
-    public int[] getPlayer1Cards (){
-        return player1Cards;
-    }
-    public int[] getPlayer2Cards (){
-        return player2Cards;
-    }
-    public int[] getPlayer3Cards (){
-        return player3Cards;
-    }
-    public int[] getPlayer4Cards (){
-        return player4Cards;
+
+    public int getCurrentPlayer(){
+        return currentPlayer;
     }
 
 

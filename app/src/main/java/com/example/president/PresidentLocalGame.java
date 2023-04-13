@@ -5,7 +5,15 @@ import com.example.GameFramework.actionMessage.GameAction;
 import com.example.GameFramework.players.GamePlayer;
 
 import java.util.ArrayList;
-
+/**
+ * @author Yutaka Roberts
+ * @author Anish Karumuri
+ * @author Zella Run
+ * @author Calvin Phuong
+ * @version April 2023
+ *
+ * *****Ignore This Class*******
+ */
 public class PresidentLocalGame extends LocalGame {
     PresidentGameState president;
     @Override
