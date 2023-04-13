@@ -16,6 +16,9 @@ import java.util.List;
  * @author Zella Run
  * @author Calvin Phuong
  * @version April 2023
+ *
+ * Has a bunch of variables which track current cards, whose cards are whose, how many cards each player has currently
+ *
  */
 public class PresidentGameState extends GameState {
     private int playerId; // the player

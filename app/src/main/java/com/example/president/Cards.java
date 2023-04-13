@@ -9,6 +9,9 @@ import java.util.ArrayList;
  * @author Zella Run
  * @author Calvin Phuong
  * @version April 2023
+ *
+ * This class has all of our playing cards
+ * Here we assign the value and image to them
  */
 public class Cards {
     ArrayList<Integer> cards;
