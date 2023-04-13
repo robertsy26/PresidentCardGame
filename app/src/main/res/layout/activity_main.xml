@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/backgroundtable">
+    android:background="@drawable/backgroundtable"
+    android:configChanges="orientation|screenSize|keyboardHidden"
+    android:screenOrientation="portrait" >
 
 
     <LinearLayout
@@ -464,8 +466,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="100dp"
         android:id="@+id/playerRight"
+        android:layout_width="100dp"
         android:layout_height="600dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="1180dp"
@@ -474,40 +476,39 @@
 
         <ImageView
             android:id="@+id/iv_playerRight1"
-            android:layout_weight= "1"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerInside"
+            android:layout_weight="1"
+            android:orientation="vertical"
             android:rotation="270"
-            android:src="@drawable/back_card"
-            />
+            android:scaleType="centerInside"
+            android:src="@drawable/back_card" />
 
         <ImageView
             android:id="@+id/iv_playerRight2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="centerInside"
             android:rotation="270"
+            android:scaleType="centerInside"
             android:src="@drawable/back_card" />
+
         <ImageView
             android:id="@+id/iv_playerRight3"
-            android:layout_weight= "1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:rotation="270"
-            android:src="@drawable/back_card"
-            />
+            android:scaleType="centerInside"
+            android:src="@drawable/back_card" />
 
         <ImageView
             android:id="@+id/iv_playerRight4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="centerInside"
             android:rotation="270"
+            android:scaleType="centerInside"
             android:src="@drawable/back_card" />
 
         <ImageView
@@ -515,8 +516,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="centerInside"
             android:rotation="270"
+            android:scaleType="centerInside"
             android:src="@drawable/back_card" />
 
         <ImageView
@@ -524,35 +525,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="centerInside"
             android:rotation="270"
+            android:scaleType="centerInside"
             android:src="@drawable/back_card" />
+
         <ImageView
             android:id="@+id/iv_playerRight7"
-            android:layout_weight= "1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:rotation="270"
-            android:src="@drawable/back_card"
-            />
+            android:scaleType="centerInside"
+            android:src="@drawable/back_card" />
+
         <ImageView
             android:id="@+id/iv_playerRight8"
-            android:layout_weight= "1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:rotation="270"
-            android:src="@drawable/back_card"
-            />
+            android:scaleType="centerInside"
+            android:src="@drawable/back_card" />
 
         <ImageView
             android:id="@+id/iv_playerRight9"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="centerInside"
             android:rotation="270"
+            android:scaleType="centerInside"
             android:src="@drawable/back_card" />
 
         <ImageView
@@ -560,8 +561,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="centerInside"
             android:rotation="270"
+            android:scaleType="centerInside"
             android:src="@drawable/back_card" />
 
         <ImageView
@@ -569,8 +570,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="centerInside"
             android:rotation="270"
+            android:scaleType="centerInside"
             android:src="@drawable/back_card" />
 
         <ImageView
@@ -578,18 +579,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="centerInside"
             android:rotation="270"
+            android:scaleType="centerInside"
             android:src="@drawable/back_card" />
+
         <ImageView
             android:id="@+id/iv_playerRight13"
-            android:layout_weight= "1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerInside"
+            android:layout_weight="1"
             android:rotation="270"
-            android:src="@drawable/back_card"
-            />
+            android:scaleType="centerInside"
+            android:src="@drawable/back_card" />
 
     </LinearLayout>
 
