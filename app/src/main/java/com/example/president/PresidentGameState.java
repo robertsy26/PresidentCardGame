@@ -74,6 +74,7 @@ public class PresidentGameState extends GameState {
 
         currentPlayer = 0;
 
+
     }
 
     public PresidentGameState(PresidentGameState president){ // copy costructor that makes deep copies
