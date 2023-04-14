@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * *****Ignore This Class*******
  */
-public class PresidentLocalGame extends LocalGame {
+/*public class PresidentLocalGame extends LocalGame {
     PresidentGameState president;
     @Override
     protected void sendUpdatedStateTo(GamePlayer p) {
@@ -59,4 +59,4 @@ public class PresidentLocalGame extends LocalGame {
         }
     }
 
-}
+}*/

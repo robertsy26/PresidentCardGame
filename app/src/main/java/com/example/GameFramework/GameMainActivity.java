@@ -213,7 +213,7 @@ public abstract class GameMainActivity extends Activity implements
      * 		the name of the configuration file for this application to use
      */
     private String saveFileName() {
-        return "savedConfig"+getPortNumber()+".dat";
+        return "savedConfig"+config.getPortNum()+".dat";
     }//saveFileName
 
     /**

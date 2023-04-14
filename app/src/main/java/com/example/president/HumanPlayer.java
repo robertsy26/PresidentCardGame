@@ -11,8 +11,6 @@ import com.example.GameFramework.infoMessage.GameInfo;
 import com.example.GameFramework.infoMessage.GameState;
 import com.example.GameFramework.players.GameHumanPlayer;
 
-// random comment, to delete later
-
 import java.util.Collections;
 /**
  * @author Yutaka Roberts
